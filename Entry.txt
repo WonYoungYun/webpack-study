@@ -1,0 +1,35 @@
+webpack Entry
+    webpack으로 묶은 모든 라이브러리를 로딩할 시작점 설정
+    a,b,c 라이브러리를 모두 번들링한 bundle.js 를 로딩한다.
+    1개 또는 2개 이상의 엔트리 포인트를 설정할 수 있다.
+
+Entry 유형
+var config = {
+    1. 간단한 Entry
+    entry : './path/to/my/entry/file.js'
+    2. 앱 로직용, 외부 라이브러리용
+    entry: {
+        app: './src/app.js',
+        vendors: './src/vendors.js'
+    }
+    3. 페이지당 불러오는 js 설정
+    entry: {
+        pageOne: './src/pageOne/index.js',
+        pageTwo: './src/pageTwo/index.js',
+        pageThree: './src/pageThree/index.js'
+    }
+};
+
+multiple Entry points
+ 복수개 엔트리 포인트에 대한 설정
+module.exports = {
+    entry: {
+        Profile: './profile.js',
+        Feed: './feed.js'
+    },
+    output: {
+        path: 'build',
+        filename: '[name].js' //지정한 entry키의 이름에 맞춰서 결과 산출
+    }
+};
+//번들파일 Profile.js를 <script src="build/Profile.js"></script>로 HTML에 삽입
