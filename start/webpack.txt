@@ -1,0 +1,11 @@
+
+webpack app/index.js --output dist/bundle.js --mode development
+
+
+
+
+동일한 내용을 하나의 파일로서 구성가능
+
+
+webpack.config.js를 만들어두면
+webpack명령어를 통해 설정파일의 내용대로 번들링을 한다.
