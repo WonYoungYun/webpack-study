@@ -1,0 +1,1 @@
+webpack 4에서는 CommonsChunkPlugin이 SplitChunksPlugin으로 바뀌며 optimization을 통해  공통된 부분을 추출가능
