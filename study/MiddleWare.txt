@@ -1,0 +1,5 @@
+Webpack Dev MiddleWare
+ 기존에 구성한 서버에 Webpack에서 컴파일한 파일을 전달하는 MiddleWare wrapper
+ webpack에서 설정한 파일 변경시, 파일에 직접 변경 내역을 저장하지 않고 메모리 공간을 활용한다.
+ 따라서, 변경된 파일 내역을 파일 디렉토리 구조안에서는 확인이 불가능하다.
+ 

@@ -1,0 +1,54 @@
+webpack-dev-server : webpack 자체에서 제공하는 개발 서버 빠른 리로딩 기능 재공
+
+
+npm i --save-dev webpack-dev-server
+
+webpack-dev-server 로 실행
+
+package.json에 명령어를 등록하여 편하게 사용가능
+"scripts": {"start": "webpack-dev-server"}
+
+
+Options
+ publicPath: webpack으로 번들링한 파일들이 위치하는 곳 default는 /
+ //항상 `/`를 앞뒤로 붙여야함
+ publicPath : "/assets/"
+
+ contentBase : 서버가 로딩할 때 static 파일경로를 지정, default는 working directory
+ //절대경로를 사용할 것
+ contentBase: path.join(__dirname, "public")
+ //비활성화
+ contentBase: false
+
+ compress: gzip압축 방식을 이용하여 웹 자원의 사이즈를 줄인다
+ compress: true
+
+path vs public path
+ webpack dev server의 path, publicPath를 구분하기 위해 파악
+ output의 path와 publicPath 속성의 차이점 이해 필요
+ #webpack 컴파일 시 뜨는 로그
+ Project is running at http://localhost:9000/
+ webpack output is served from /dist/
+
+ output.path: 번들링한 결과가 위치할 번들링 파일의 절대경로
+ output.publicPath:브라우저가 참고할 번들링 결과 파일의 URL주소를 지정(CDN을 사용하는 경우 CDN 호스트 지정)
+ //publicPath 예제 #1
+ output:{
+     path: "/home/proj/public/assets",
+     publicPath: "/assets/"
+ }
+ //publicPath 예제 #2
+ output:{
+     path: "/home/proj/cdn/assets/[hash]",
+     publicPath: "http://cdn.example.com/assets/[hash]/"
+ }
+
+
+//개발시
+.image{
+    background-image: url('./test.png');
+}
+//프로덕션
+.image{
+    background-image: url('https://someCDN/test.png');
+}
